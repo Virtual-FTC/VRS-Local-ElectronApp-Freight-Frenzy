@@ -28,10 +28,10 @@ function writeMotorPowers() {
         UnityInstance.SendMessage("FieldManager", "buttonStopGame");
         localStorage.setItem('stopMatch', false);
     } else if (localStorage.getItem('resetField') == 'true') {
-        UnityInstance.SendMessage("FieldManager", "resetField");
+        UnityInstance.SendMessage("FieldManager", "ResetField");
         localStorage.setItem('resetField', false);
     }
-	
+
 	if (localStorage.getItem('motorResetEncoders') == 'true') {
     UnityInstance.SendMessage("PhotonNetworkPlayer(Clone)", "resetEncoders");
         localStorage.setItem('motorResetEncoders', false);
@@ -54,8 +54,8 @@ function writeMotorPowers() {
     UnityInstance.SendMessage("PhotonNetworkPlayer(Clone)", "setMotor6", (motor6 != null) ? motor6 : 0);
     UnityInstance.SendMessage("PhotonNetworkPlayer(Clone)", "setMotor7", (motor7 != null) ? motor7 : 0);
     UnityInstance.SendMessage("PhotonNetworkPlayer(Clone)", "setMotor8", (motor8 != null) ? motor8 : 0);
-	
+
 	//Implement Servos once Unity is ready
-	
+
     check();
 }
