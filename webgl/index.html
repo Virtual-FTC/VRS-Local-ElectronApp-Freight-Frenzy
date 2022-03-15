@@ -62,9 +62,22 @@
         setTimeout(() => {
           mobileWarning.style.display = "none";
         }, 5000);
-      } else {
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
+      }
+      else {
+      document.querySelector("#unity-footer").style.display = "none";
+
+      const resizeCanvas = () => {
+        const fieldView = parent.document.querySelector('#fieldView');
+
+		canvas.style.width = `${fieldView.offsetWidth}px`;
+		canvas.style.height = `${fieldView.offsetHeight}px`;
+      }
+
+      resizeCanvas();
+
+      window.addEventListener('resize', () => {
+        resizeCanvas();
+      })
       }
       loadingBar.style.display = "block";
 
@@ -75,7 +88,7 @@
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           console.log("WROTE: " + unityInstance);
-          UnityInstance = unityInstance;
+        UnityInstance = unityInstance;
           loadingBar.style.display = "none";
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
@@ -86,31 +99,31 @@
       };
       document.body.appendChild(script);
       var frontLeftEncoder = 0;
-  var frontRightEncoder = 0;
-  var backLeftEncoder = 0;
-  var backRightEncoder = 0;
+    var frontRightEncoder = 0;
+    var backLeftEncoder = 0;
+    var backRightEncoder = 0;
 
-  function setFrontLeftEncoders(encoders) {
-    frontLeftEncoder = encoders;
-    updateEncoderLocalStorage();
-  }
-  function setFrontRightEncoders(encoders) {
-    frontRightEncoder = encoders;
-    updateEncoderLocalStorage();
-  }
-  function setBackLeftEncoders(encoders) {
-    backLeftEncoder = encoders;
-    updateEncoderLocalStorage();
-  }
-  function setBackRightEncoders(encoders) {
-    backRightEncoder = encoders;
-    updateEncoderLocalStorage();
-  }
+    function setFrontLeftEncoders(encoders) {
+      frontLeftEncoder = encoders;
+      updateEncoderLocalStorage();
+    }
+    function setFrontRightEncoders(encoders) {
+      frontRightEncoder = encoders;
+      updateEncoderLocalStorage();
+    }
+    function setBackLeftEncoders(encoders) {
+      backLeftEncoder = encoders;
+      updateEncoderLocalStorage();
+    }
+    function setBackRightEncoders(encoders) {
+      backRightEncoder = encoders;
+      updateEncoderLocalStorage();
+    }
 
-  function updateEncoderLocalStorage() {
-  var motorPositions = "[" + frontLeftEncoder + ", " + frontRightEncoder + ", " + backLeftEncoder + ", " + backRightEncoder + ", 0, 0, 0, 0]";
-    localStorage.setItem('motorCurrentPositions', motorPositions);
-  }
+    function updateEncoderLocalStorage() {
+	  var motorPositions = "[" + frontLeftEncoder + ", " + frontRightEncoder + ", " + backLeftEncoder + ", " + backRightEncoder + ", 0, 0, 0, 0]";
+      localStorage.setItem('motorCurrentPositions', motorPositions);
+    }
     </script>
   </body>
 </html>
