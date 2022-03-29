@@ -25,25 +25,25 @@
 			"encoder": 560
 		},
 		{
-			"name": "ringCollection",
+			"name": "topFlywheel",
 			"type": "normal",
 			"maxrpm": 340,
 			"encoder": 560
 		},
 		{
-			"name": "ringLoader",
+			"name": "liftExtender",
 			"type": "normal",
 			"maxrpm": 340,
 			"encoder": 560
 		},
 		{
-			"name": "ringShooter",
+			"name": "liftRetractor",
 			"type": "normal",
 			"maxrpm": 340,
 			"encoder": 560
 		},
 		{
-			"name": "wobbleActuator",
+			"name": "armMotor",
 			"type": "normal",
 			"maxrpm": 340,
 			"encoder": 560
