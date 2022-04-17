@@ -319,6 +319,7 @@ let angularVelocity = {
 var colorSensorData = JSON.parse(localStorage.getItem("colorSensorReadings"));
 let colorSensor = {
 	getColor: function (colorSensorNumber, property) {
+		colorSensorData = JSON.parse(localStorage.getItem("colorSensorReadings"));
 		var returnValue = -1;
 		if (property == "Red") {
 			returnValue = colorSensorData[colorSensorNumber][0]
@@ -326,12 +327,16 @@ let colorSensor = {
 			returnValue = colorSensorData[colorSensorNumber][1]
 		} else if (property == "Green") {
 			returnValue = colorSensorData[colorSensorNumber][2]
-		} else if (property == "Alpha") {
-			returnValue = colorSensorData[colorSensorNumber][3]
 		}
 		console.log("COLOR SENSOR COLOR SNESOR: " + colorSensorData + ", " + property + ", " + returnValue);
 		return returnValue;
 	},
+	getDistance: function (colorSensorNumber, unit) {
+		colorSensorData = JSON.parse(localStorage.getItem("colorSensorReadings"));
+		// TODO: figure out what current units are then add unit conversion - right now its just returning value frm unity
+		console.log("Distance SENSOR distance SNESOR: " + colorSensorData + ", " + unit + ", " + colorSensorData[colorSensorNumber][3]);
+		return colorSensorData[colorSensorNumber][3];
+	}
 }
 
 let color = {

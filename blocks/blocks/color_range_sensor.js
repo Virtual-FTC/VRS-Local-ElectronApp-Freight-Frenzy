@@ -247,7 +247,7 @@ Blockly.JavaScript['lynxI2cColorRangeSensor_getDistance_Number'] = function (blo
   var identifier = block.getFieldValue('IDENTIFIER');
   var unit = Blockly.JavaScript.valueToCode(
     block, 'UNIT', Blockly.JavaScript.ORDER_NONE);
-  var code = identifier + '.getDistance(' + unit + ')';
+  var code = 'colorSensor.getDistance(' + identifier.substring(identifier.length - 1) + ', ' + unit + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
 
