@@ -22,11 +22,9 @@ check();
 
 function writeMotorPowers() {
     if (localStorage.getItem('startMatch') == 'true') {
-        // Causes null object error
         UnityInstance.SendMessage("FieldManager", "buttonStartGame");
         localStorage.setItem('startMatch', false);
     } else if (localStorage.getItem('stopMatch') == 'true') {
-        // Gives Value cannot be null error (Unity side)
         UnityInstance.SendMessage("FieldManager", "buttonStopGame");
         localStorage.setItem('stopMatch', false);
     } else if (localStorage.getItem('resetField') == 'true') {
@@ -47,7 +45,6 @@ function writeMotorPowers() {
     localStorage.setItem('motorResetEncoders', "[false, false, false, false, false, false, false, false]");
 
 
-    console.log("kjadflasdnfjsdn:  " + motors)
     //Old Code (Lean off of using this)
     for (var i = 0; i < encoderResets.length; i++)
         if (encoderResets[i] == true)
@@ -70,10 +67,6 @@ function writeMotorPowers() {
     //To add more use: obj.<name> = array
 
     //WIP - Unity will need to respond to this one command and set values accordingly
-
-    console.log("adjfnasldfnlasdkfnka:  " + JSON.stringify(command))
-
-
     UnityInstance.SendMessage("PhotonNetworkPlayer(Clone)", "receiveInfo", JSON.stringify(command));
     //Sends the info: '{"motors":[0,0,0,0,0,0,0,0],"encoderResets":[false,false,false,false,false,false,false,false],"servos":[0,0,0]}'
 
