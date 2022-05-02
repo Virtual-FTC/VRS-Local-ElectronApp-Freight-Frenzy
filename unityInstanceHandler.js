@@ -49,10 +49,10 @@ function writeMotorPowers() {
 	for (var i = 0; i < encoderResets.length; i++)
 		if (encoderResets[i] == true)
 			UnityInstance.SendMessage("PhotonNetworkPlayer(Clone)", "resetEncoders");
-	UnityInstance.SendMessage("PhotonNetworkPlayer(Clone)", "setFrontLeftVel", motors[0]);
-    UnityInstance.SendMessage("PhotonNetworkPlayer(Clone)", "setFrontRightVel", motors[1]);
-    UnityInstance.SendMessage("PhotonNetworkPlayer(Clone)", "setBackLeftVel", motors[2]);
-    UnityInstance.SendMessage("PhotonNetworkPlayer(Clone)", "setBackRightVel", motors[3]);
+	UnityInstance.SendMessage("Management", "setFrontLeftVel", motors[0]);
+    UnityInstance.SendMessage("Management", "setFrontRightVel", motors[1]);
+    UnityInstance.SendMessage("Management", "setBackLeftVel", motors[2]);
+    UnityInstance.SendMessage("Management", "setBackRightVel", motors[3]);
     UnityInstance.SendMessage("PhotonNetworkPlayer(Clone)", "setMotor5", motors[4]);
     UnityInstance.SendMessage("PhotonNetworkPlayer(Clone)", "setMotor6", motors[5]);
     UnityInstance.SendMessage("PhotonNetworkPlayer(Clone)", "setMotor7", motors[6]);
